@@ -15,12 +15,19 @@ isim/
 iseconfig/
 _xmsgs/
 xst/
+tmp/
 *.gise
 *.html
 *.lso
 *.prj
 *.stx
 *.xst
+*.txt
+*.vho
+*.schlog
+*.cmd_log
+*.jhd
+coregen_lock
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
