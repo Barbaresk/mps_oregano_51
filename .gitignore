@@ -14,6 +14,7 @@ Students/obj/*
 isim/
 iseconfig/
 _xmsgs/
+*.gise
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
