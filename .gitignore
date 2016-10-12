@@ -13,7 +13,7 @@ Students/obj/*
 #xilinx files
 isim/
 iseconfig/
-
+_xmsgs/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
