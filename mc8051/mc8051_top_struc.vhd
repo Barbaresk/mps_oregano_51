@@ -1,4 +1,4 @@
--
+
 architecture struc of mc8051_top is
     
   signal s_rom_adr:      std_logic_vector(15 downto 0);  -- Programmcounter =
