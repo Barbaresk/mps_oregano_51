@@ -26,8 +26,14 @@ tmp/
 *.schlog
 *.cmd_log
 *.jhd
+*.ncf
+*.xml
+*.ngc
+*.syr
+*.vhf
+*.xrpt
 coregen_lock
-
+sch2HdlBatchFile
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

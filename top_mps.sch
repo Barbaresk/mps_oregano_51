@@ -6,6 +6,8 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
+        <signal name="CLK" />
+        <port polarity="Input" name="CLK" />
         <blockdef name="mc8051_top">
             <timestamp>2016-10-12T23:45:46</timestamp>
             <rect width="400" x="64" y="-896" height="896" />
@@ -55,7 +57,7 @@
             <line x2="528" y1="-64" y2="-64" x1="464" />
         </blockdef>
         <block symbolname="mc8051_top" name="XLXI_1">
-            <blockpin name="clk" />
+            <blockpin signalname="CLK" name="clk" />
             <blockpin name="reset" />
             <blockpin name="ramx_access_en" />
             <blockpin name="ramx_data_valid" />
@@ -85,5 +87,9 @@
     <sheet sheetnum="1" width="3520" height="2720">
         <instance x="1344" y="1728" name="XLXI_1" orien="R0">
         </instance>
+        <branch name="CLK">
+            <wire x2="1344" y1="864" y2="864" x1="1312" />
+        </branch>
+        <iomarker fontsize="28" x="1312" y="864" name="CLK" orien="R180" />
     </sheet>
 </drawing>
