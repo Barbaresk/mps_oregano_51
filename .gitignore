@@ -23,7 +23,6 @@ tmp/
 *.stx
 *.xst
 *.txt
-*.vho
 *.schlog
 *.cmd_log
 *.jhd
