@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.4
-# Date: Thu Oct 13 12:48:17 2016
+# Date: Thu Oct 13 13:31:15 2016
 #
 ##############################################################
 #
@@ -40,7 +40,7 @@ SELECT Distributed_Memory_Generator xilinx.com:ip:dist_mem_gen:7.2
 # END Select
 # BEGIN Parameters
 CSET ce_overrides=ce_overrides_sync_controls
-CSET coefficient_file=no_coe_file_loaded
+CSET coefficient_file=.\coe.coe
 CSET common_output_ce=false
 CSET common_output_clk=false
 CSET component_name=mc8051_rom
@@ -70,4 +70,4 @@ CSET sync_reset_qspo=false
 MISC pkg_timestamp=2012-11-21T20:07:40Z
 # END Extra information
 GENERATE
-# CRC: ed970069
+# CRC: ed2b21e2
