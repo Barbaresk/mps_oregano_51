@@ -28,7 +28,6 @@ tmp/
 *.jhd
 *.ncf
 *.xml
-*.ngc
 *.syr
 *.vhf
 *.xrpt
