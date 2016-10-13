@@ -33,6 +33,8 @@ tmp/
 *.vhf
 *.xrpt
 *.ngr
+*.tcl
+ipcore_dir/*/
 coregen_lock
 sch2HdlBatchFile
 
