@@ -33,6 +33,11 @@ tmp/
 *.xrpt
 *.ngr
 *.tcl
+*.ini
+*.cmd
+*.exe
+*.wdb
+*.xmsgs
 ipcore_dir/*/
 coregen_lock
 sch2HdlBatchFile
