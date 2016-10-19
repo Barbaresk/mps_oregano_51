@@ -39,6 +39,7 @@ tmp/
 *.wdb
 *.xmsgs
 *.cgc
+*.schbak
 ipcore_dir/*/
 coregen_lock
 sch2HdlBatchFile
