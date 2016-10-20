@@ -65,7 +65,7 @@ ARCHITECTURE behavioral OF top_mps_top_mps_sch_tb IS
    SIGNAL UP1             : STD_LOGIC := '1';
    SIGNAL COUNT1          : STD_LOGIC_VECTOR (15 DOWNTO 0) := (others => '0');
    SIGNAL LOAD2           : STD_LOGIC := '0';
-   SIGNAL UP2             : STD_LOGIC := '0';
+   SIGNAL UP2             : STD_LOGIC := '1';
    SIGNAL COUNT2          : STD_LOGIC_VECTOR (7 DOWNTO 0) := (others => '0');
 	SIGNAL DATA_IN         : STD_LOGIC_VECTOR (15 DOWNTO 0) := (others => '0');
 	SIGNAL CC              : STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -75,15 +75,15 @@ BEGIN
 	CC <= COUNT_Q(10 downto 3);
 
    UUT: top_mps PORT MAP(
-		RESET => RESET, 
-		RAMX_ACCESS_EN => RAMX_ACCESS_EN, 
+		RESET           => RESET, 
+		RAMX_ACCESS_EN  => RAMX_ACCESS_EN, 
 		RAMX_DATA_VALID => RAMX_DATA_VALID, 
-		INT0_I => INT0_I, 
-		INT1_I => INT1_I, 
-		ALL_T0_I => ALL_T0_I, 
-		ALL_T1_I => ALL_T1_I, 
-		ALL_RXD_I => ALL_RXD_I, 
-		P0_I => P0_I, 
+		INT0_I          => INT0_I, 
+		INT1_I          => INT1_I, 
+		ALL_T0_I        => ALL_T0_I, 
+		ALL_T1_I        => ALL_T1_I, 
+		ALL_RXD_I       => ALL_RXD_I, 
+		P0_I          => P0_I, 
 		COUNT_Q => COUNT_Q,
 		P2_I => P2_I, 
 		P3_I => P3_I, 
@@ -128,7 +128,9 @@ BEGIN
 		while P0_O(2) /= '1' loop
 			wait for CLK_T;
 		end loop;
-		
+		while P0_O(2) /= '0' loop
+			wait for CLK_T;
+		end loop;
 		wait for 100 * CLK_T;
 	
 	end process;
