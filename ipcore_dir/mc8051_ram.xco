@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.4
-# Date: Thu Oct 13 12:16:37 2016
+# Date: Sun Nov 06 10:57:47 2016
 #
 ##############################################################
 #
@@ -12,7 +12,7 @@
 #
 ##############################################################
 #
-#  Generated from component: xilinx.com:ip:blk_mem_gen:7.3
+#  Generated from component: xilinx.com:ip:blk_mem_gen:7.2
 #
 ##############################################################
 #
@@ -36,7 +36,7 @@ SET verilogsim = false
 SET vhdlsim = true
 # END Project Options
 # BEGIN Select
-SELECT Block_Memory_Generator xilinx.com:ip:blk_mem_gen:7.3
+SELECT Block_Memory_Generator xilinx.com:ip:blk_mem_gen:7.2
 # END Select
 # BEGIN Parameters
 CSET additional_inputs_for_power_estimation=false
@@ -60,7 +60,6 @@ CSET error_injection_type=Single_Bit_Error_Injection
 CSET fill_remaining_memory_locations=false
 CSET interface_type=Native
 CSET load_init_file=false
-CSET mem_file=no_Mem_file_loaded
 CSET memory_type=Single_Port_RAM
 CSET operating_mode_a=WRITE_FIRST
 CSET operating_mode_b=WRITE_FIRST
@@ -90,7 +89,6 @@ CSET reset_priority_b=CE
 CSET reset_type=ASYNC
 CSET softecc=false
 CSET use_axi_id=false
-CSET use_bram_block=Stand_Alone
 CSET use_byte_write_enable=false
 CSET use_error_injection_pins=false
 CSET use_regcea_pin=false
@@ -102,7 +100,7 @@ CSET write_width_a=8
 CSET write_width_b=8
 # END Parameters
 # BEGIN Extra information
-MISC pkg_timestamp=2012-11-19T16:22:25Z
+MISC pkg_timestamp=2012-07-03T19:07:51Z
 # END Extra information
 GENERATE
-# CRC: ed67c9e5
+# CRC: a8857ed0

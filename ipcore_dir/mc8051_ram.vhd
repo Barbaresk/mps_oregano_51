@@ -67,7 +67,7 @@ COMPONENT wrapped_mc8051_ram
 END COMPONENT;
 
 -- Configuration specification
-  FOR ALL : wrapped_mc8051_ram USE ENTITY XilinxCoreLib.blk_mem_gen_v7_3(behavioral)
+  FOR ALL : wrapped_mc8051_ram USE ENTITY XilinxCoreLib.blk_mem_gen_v7_2(behavioral)
     GENERIC MAP (
       c_addra_width => 7,
       c_addrb_width => 7,
@@ -96,7 +96,6 @@ END COMPONENT;
       c_has_rstb => 0,
       c_has_softecc_input_regs_a => 0,
       c_has_softecc_output_regs_b => 0,
-      c_init_file => "BlankString",
       c_init_file_name => "no_coe_file_loaded",
       c_inita_val => "0",
       c_initb_val => "0",
@@ -115,7 +114,6 @@ END COMPONENT;
       c_rstram_a => 0,
       c_rstram_b => 0,
       c_sim_collision_check => "ALL",
-      c_use_bram_block => 0,
       c_use_byte_wea => 0,
       c_use_byte_web => 0,
       c_use_default_data => 0,

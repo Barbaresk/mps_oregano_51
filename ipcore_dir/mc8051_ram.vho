@@ -27,7 +27,7 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
---    Generated from core with identifier: xilinx.com:ip:blk_mem_gen:7.3      --
+--    Generated from core with identifier: xilinx.com:ip:blk_mem_gen:7.2      --
 --                                                                            --
 --    The Xilinx LogiCORE IP Block Memory Generator replaces the Dual Port    --
 --    Block Memory and Single Port Block Memory LogiCOREs, but is not a       --
@@ -41,6 +41,20 @@
 --    between this core and the Dual Port Block Memory and Single Port        --
 --    Block Memory LogiCOREs, please consult the data sheet.                  --
 --------------------------------------------------------------------------------
+
+-- Interfaces:
+--    CLK.ACLK
+--        AXI4 Interconnect Clock Input
+--    RST.ARESETN
+--        AXI4 Interconnect Reset Input
+--    AXI_SLAVE_S_AXI
+--        AXI_SLAVE
+--    AXILite_SLAVE_S_AXI
+--        AXILite_SLAVE
+--    BRAM_PORTA
+--        BRAM_PORTA
+--    BRAM_PORTB
+--        BRAM_PORTB
 
 -- The following code must appear in the VHDL architecture header:
 
