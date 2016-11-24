@@ -30,8 +30,7 @@ g:
 		data(i) <= data_in((i + 1) * 8 - 1 downto i * 8);
 	end generate;
 
-	
-	process (cs_dev) 
+	process (cs_dev, data) 
 	begin
 		for i in 0 to DEV_NUM - 1 loop
 			if cs_dev(i) = '1' then
@@ -39,6 +38,11 @@ g:
 			end if;
 		end loop;
 	end process;
+	
+--	process (cs_dev) 
+--	begin
+
+--	end process;
 	
 end arch;
 

@@ -33,16 +33,13 @@ ARCHITECTURE behavioral OF top_mps_top_mps_sch_tb IS
           LOAD1           : IN  STD_LOGIC; 
           UP1             : IN  STD_LOGIC; 
           COUNT1          : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
-          LOAD2           : IN  STD_LOGIC; 
-          UP2             : IN  STD_LOGIC; 
-          COUNT2          : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
 			 DATA_IN         : OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
 			 );
    END COMPONENT;
 
    SIGNAL RESET           : STD_LOGIC := '0';
    SIGNAL RAMX_ACCESS_EN  : STD_LOGIC := '0';
-   SIGNAL RAMX_DATA_VALID : STD_LOGIC := '0';
+   SIGNAL RAMX_DATA_VALID : STD_LOGIC := '1';
    SIGNAL INT0_I          : STD_LOGIC_VECTOR (0 DOWNTO 0) := "0";
    SIGNAL INT1_I          : STD_LOGIC_VECTOR (0 DOWNTO 0) := "0";
    SIGNAL ALL_T0_I        : STD_LOGIC_VECTOR (0 DOWNTO 0) := "0";
@@ -64,12 +61,11 @@ ARCHITECTURE behavioral OF top_mps_top_mps_sch_tb IS
    SIGNAL LOAD1           : STD_LOGIC := '0';
    SIGNAL UP1             : STD_LOGIC := '1';
    SIGNAL COUNT1          : STD_LOGIC_VECTOR (15 DOWNTO 0) := (others => '0');
-   SIGNAL LOAD2           : STD_LOGIC := '0';
-   SIGNAL UP2             : STD_LOGIC := '1';
-   SIGNAL COUNT2          : STD_LOGIC_VECTOR (7 DOWNTO 0) := (others => '0');
 	SIGNAL DATA_IN         : STD_LOGIC_VECTOR (15 DOWNTO 0) := (others => '0');
 	SIGNAL CC              : STD_LOGIC_VECTOR (7 DOWNTO 0);
-	constant CLK_T         : time := 10 ns;
+	SIGNAL WATER           : STD_LOGIC_VECTOR (5 DOWNTO 0);
+	SIGNAL TEMPERATURE     : STD_LOGIC_VECTOR (7 DOWNTO 0);
+	constant CLK_T         : time := 80 ns;
 BEGIN
 
 	CC <= COUNT_Q(10 downto 3);
@@ -99,12 +95,11 @@ BEGIN
 		LOAD1 => LOAD1, 
 		UP1 => UP1, 
 		COUNT1 => COUNT1,
-		LOAD2 => LOAD2, 
-		UP2 => UP2, 
-		COUNT2 => COUNT2,
 		DATA_IN => DATA_IN
    );
 	
+	WATER <= COUNT_Q(13 DOWNTO 8);
+	TEMPERATURE <= DATA_IN(7 DOWNTO 0);
 	CLK <= not CLK after CLK_T / 2;
 	process begin
 		RESET <= '1';
@@ -131,7 +126,7 @@ BEGIN
 		while P0_O(2) /= '0' loop
 			wait for CLK_T;
 		end loop;
-		wait for 100 * CLK_T;
+		wait for 10000000 * CLK_T;
 	
 	end process;
 

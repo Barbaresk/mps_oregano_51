@@ -17,7 +17,7 @@ package mcsys8051_p is
 			-- Адреса должны идти в порядке возростания:
 			--	BADDR_DEVi < BADDR_DEV(i+1)
 				
-				constant BADDR_DEV1	: std_logic_vector(15 downto 0) := X"0000";
+				constant BADDR_DEV1	: std_logic_vector(15 downto 0) := X"0001";
 				constant BADDR_DEV2	: std_logic_vector(15 downto 0) := X"0100";
 				constant BADDR_DEV3	: std_logic_vector(15 downto 0) := X"0110";
 				constant BADDR_DEV4	: std_logic_vector(15 downto 0) := X"0120";
