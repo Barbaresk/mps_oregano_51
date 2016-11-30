@@ -125,8 +125,8 @@
             <rect width="64" x="368" y="-108" height="24" />
             <line x2="432" y1="-96" y2="-96" x1="368" />
         </blockdef>
-        <blockdef name="count_entity">
-            <timestamp>2016-11-24T10:12:3</timestamp>
+        <blockdef name="PUMP">
+            <timestamp>2016-11-24T11:43:12</timestamp>
             <rect width="256" x="64" y="-192" height="192" />
             <line x2="0" y1="-160" y2="-160" x1="64" />
             <line x2="0" y1="-96" y2="-96" x1="64" />
@@ -134,8 +134,8 @@
             <rect width="64" x="320" y="-172" height="24" />
             <line x2="384" y1="-160" y2="-160" x1="320" />
         </blockdef>
-        <blockdef name="PUMP">
-            <timestamp>2016-11-24T11:43:12</timestamp>
+        <blockdef name="HEATER">
+            <timestamp>2016-11-30T23:34:11</timestamp>
             <rect width="256" x="64" y="-192" height="192" />
             <line x2="0" y1="-160" y2="-160" x1="64" />
             <line x2="0" y1="-96" y2="-96" x1="64" />
@@ -187,17 +187,17 @@
             <blockpin signalname="DATA_IN(15:0)" name="data_in(15:0)" />
             <blockpin signalname="XLXN_255(7:0)" name="data_out(7:0)" />
         </block>
-        <block symbolname="count_entity" name="XLXI_23">
-            <blockpin signalname="RESET" name="RST" />
-            <blockpin signalname="CLK" name="CLK" />
-            <blockpin signalname="P0_O(2)" name="CE" />
-            <blockpin signalname="DATA_IN(7:0)" name="Q(7:0)" />
-        </block>
         <block symbolname="PUMP" name="XLXI_26">
             <blockpin signalname="CLK" name="C" />
             <blockpin signalname="XLXN_194" name="CE" />
             <blockpin signalname="RESET" name="CLR" />
             <blockpin signalname="WATER(7:0)" name="WATER(7:0)" />
+        </block>
+        <block symbolname="HEATER" name="XLXI_27">
+            <blockpin signalname="RESET" name="C" />
+            <blockpin signalname="CLK" name="CE" />
+            <blockpin signalname="P0_O(2)" name="CLR" />
+            <blockpin signalname="DATA_IN(7:0)" name="HEATER(7:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -357,8 +357,6 @@
             <wire x2="1680" y1="592" y2="592" x1="1440" />
         </branch>
         <iomarker fontsize="28" x="384" y="880" name="CLK" orien="R180" />
-        <instance x="1888" y="1248" name="XLXI_23" orien="R0">
-        </instance>
         <instance x="1680" y="688" name="XLXI_26" orien="R0">
         </instance>
         <branch name="WATER(7:0)">
@@ -370,5 +368,7 @@
             <wire x2="2080" y1="528" y2="528" x1="2064" />
         </branch>
         <iomarker fontsize="28" x="2192" y="528" name="WATER(7:0)" orien="R0" />
+        <instance x="1888" y="1248" name="XLXI_27" orien="R0">
+        </instance>
     </sheet>
 </drawing>
