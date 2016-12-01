@@ -18,33 +18,29 @@
         <signal name="P0_O(1)" />
         <signal name="P0_O(2)" />
         <signal name="XLXN_194" />
-        <signal name="RAMX_ACCESS_EN" />
-        <signal name="RAMX_DATA_VALID" />
         <signal name="INT0_I(0:0)" />
-        <signal name="INT1_I(0:0)" />
-        <signal name="ALL_T0_I(0:0)" />
-        <signal name="ALL_T1_I(0:0)" />
-        <signal name="ALL_RXD_I(0:0)" />
         <signal name="P0_I(7:0)" />
-        <signal name="P2_I(7:0)" />
-        <signal name="P3_I(7:0)" />
         <signal name="XLXN_255(7:0)" />
         <signal name="RESET" />
         <signal name="WATER(7:0)" />
         <signal name="XLXN_256" />
+        <signal name="XLXN_257" />
+        <signal name="XLXN_258" />
+        <signal name="XLXN_259" />
+        <signal name="XLXN_261(0:0)" />
+        <signal name="XLXN_262(0:0)" />
+        <signal name="XLXN_263(0:0)" />
+        <signal name="XLXN_264(0:0)" />
+        <signal name="XLXN_265(0:0)" />
+        <signal name="XLXN_266(0:0)" />
+        <signal name="XLXN_267(0:0)" />
+        <signal name="XLXN_268(7:0)" />
+        <signal name="XLXN_269(7:0)" />
         <port polarity="Output" name="P0_O(7:0)" />
         <port polarity="Output" name="DATA_IN(15:0)" />
         <port polarity="Input" name="CLK" />
-        <port polarity="Input" name="RAMX_ACCESS_EN" />
-        <port polarity="Input" name="RAMX_DATA_VALID" />
         <port polarity="Input" name="INT0_I(0:0)" />
-        <port polarity="Input" name="INT1_I(0:0)" />
-        <port polarity="Input" name="ALL_T0_I(0:0)" />
-        <port polarity="Input" name="ALL_T1_I(0:0)" />
-        <port polarity="Input" name="ALL_RXD_I(0:0)" />
         <port polarity="Input" name="P0_I(7:0)" />
-        <port polarity="Input" name="P2_I(7:0)" />
-        <port polarity="Input" name="P3_I(7:0)" />
         <port polarity="Input" name="RESET" />
         <port polarity="Output" name="WATER(7:0)" />
         <blockdef name="mc8051_top">
@@ -144,21 +140,35 @@
             <rect width="64" x="320" y="-172" height="24" />
             <line x2="384" y1="-160" y2="-160" x1="320" />
         </blockdef>
+        <blockdef name="vcc">
+            <timestamp>2000-1-1T10:10:10</timestamp>
+            <line x2="64" y1="-32" y2="-64" x1="64" />
+            <line x2="64" y1="0" y2="-32" x1="64" />
+            <line x2="32" y1="-64" y2="-64" x1="96" />
+        </blockdef>
+        <blockdef name="gnd_m">
+            <timestamp>2016-12-1T0:9:30</timestamp>
+            <rect width="256" x="64" y="-128" height="128" />
+            <rect width="64" x="320" y="-108" height="24" />
+            <line x2="384" y1="-96" y2="-96" x1="320" />
+            <rect width="64" x="320" y="-44" height="24" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
+        </blockdef>
         <block symbolname="mc8051_top" name="mc8051">
             <blockpin signalname="CLK" name="clk" />
             <blockpin signalname="RESET" name="reset" />
-            <blockpin signalname="RAMX_ACCESS_EN" name="ramx_access_en" />
-            <blockpin signalname="RAMX_DATA_VALID" name="ramx_data_valid" />
+            <blockpin signalname="XLXN_258" name="ramx_access_en" />
+            <blockpin signalname="XLXN_258" name="ramx_data_valid" />
             <blockpin signalname="XLXN_255(7:0)" name="ramx_data_in(7:0)" />
             <blockpin signalname="INT0_I(0:0)" name="int0_i(0:0)" />
-            <blockpin signalname="INT1_I(0:0)" name="int1_i(0:0)" />
-            <blockpin signalname="ALL_T0_I(0:0)" name="all_t0_i(0:0)" />
-            <blockpin signalname="ALL_T1_I(0:0)" name="all_t1_i(0:0)" />
-            <blockpin signalname="ALL_RXD_I(0:0)" name="all_rxd_i(0:0)" />
+            <blockpin signalname="XLXN_267(0:0)" name="int1_i(0:0)" />
+            <blockpin signalname="XLXN_267(0:0)" name="all_t0_i(0:0)" />
+            <blockpin signalname="XLXN_267(0:0)" name="all_t1_i(0:0)" />
+            <blockpin signalname="XLXN_267(0:0)" name="all_rxd_i(0:0)" />
             <blockpin signalname="P0_I(7:0)" name="p0_i(7:0)" />
             <blockpin signalname="WATER(7:0)" name="p1_i(7:0)" />
-            <blockpin signalname="P2_I(7:0)" name="p2_i(7:0)" />
-            <blockpin signalname="P3_I(7:0)" name="p3_i(7:0)" />
+            <blockpin signalname="XLXN_269(7:0)" name="p2_i(7:0)" />
+            <blockpin signalname="XLXN_269(7:0)" name="p3_i(7:0)" />
             <blockpin signalname="RAMX_WR" name="ramx_wr" />
             <blockpin name="ramx_rd" />
             <blockpin signalname="DATA_IN(15:8)" name="ramx_data_out(7:0)" />
@@ -199,6 +209,13 @@
             <blockpin signalname="P0_O(2)" name="CE" />
             <blockpin signalname="RESET" name="CLR" />
             <blockpin signalname="DATA_IN(7:0)" name="HEATER(7:0)" />
+        </block>
+        <block symbolname="vcc" name="XLXI_29">
+            <blockpin signalname="XLXN_258" name="P" />
+        </block>
+        <block symbolname="gnd_m" name="XLXI_31">
+            <blockpin signalname="XLXN_267(0:0)" name="z1(0:0)" />
+            <blockpin signalname="XLXN_269(7:0)" name="z8(7:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -270,51 +287,19 @@
             <wire x2="1120" y1="336" y2="560" x1="1120" />
             <wire x2="1120" y1="560" y2="1792" x1="1120" />
         </branch>
-        <branch name="RAMX_DATA_VALID">
-            <wire x2="560" y1="1760" y2="1760" x1="432" />
-        </branch>
         <branch name="INT0_I(0:0)">
             <wire x2="560" y1="1888" y2="1888" x1="464" />
         </branch>
-        <branch name="INT1_I(0:0)">
-            <wire x2="560" y1="1952" y2="1952" x1="448" />
-        </branch>
-        <branch name="ALL_T0_I(0:0)">
-            <wire x2="560" y1="2016" y2="2016" x1="448" />
-        </branch>
-        <branch name="ALL_T1_I(0:0)">
-            <wire x2="560" y1="2080" y2="2080" x1="432" />
-        </branch>
-        <branch name="ALL_RXD_I(0:0)">
-            <wire x2="560" y1="2144" y2="2144" x1="432" />
-        </branch>
         <branch name="P0_I(7:0)">
-            <wire x2="560" y1="2208" y2="2208" x1="432" />
-        </branch>
-        <branch name="P2_I(7:0)">
-            <wire x2="560" y1="2336" y2="2336" x1="432" />
-        </branch>
-        <branch name="P3_I(7:0)">
-            <wire x2="560" y1="2400" y2="2400" x1="432" />
-        </branch>
-        <branch name="RAMX_ACCESS_EN">
-            <wire x2="560" y1="1696" y2="1696" x1="432" />
+            <wire x2="544" y1="2208" y2="2208" x1="272" />
+            <wire x2="560" y1="2208" y2="2208" x1="544" />
         </branch>
         <branch name="XLXN_255(7:0)">
             <wire x2="496" y1="1392" y2="1392" x1="480" />
             <wire x2="496" y1="1392" y2="1824" x1="496" />
             <wire x2="560" y1="1824" y2="1824" x1="496" />
         </branch>
-        <iomarker fontsize="28" x="432" y="1760" name="RAMX_DATA_VALID" orien="R180" />
-        <iomarker fontsize="28" x="432" y="1696" name="RAMX_ACCESS_EN" orien="R180" />
         <iomarker fontsize="28" x="464" y="1888" name="INT0_I(0:0)" orien="R180" />
-        <iomarker fontsize="28" x="448" y="1952" name="INT1_I(0:0)" orien="R180" />
-        <iomarker fontsize="28" x="432" y="2080" name="ALL_T1_I(0:0)" orien="R180" />
-        <iomarker fontsize="28" x="432" y="2144" name="ALL_RXD_I(0:0)" orien="R180" />
-        <iomarker fontsize="28" x="432" y="2208" name="P0_I(7:0)" orien="R180" />
-        <iomarker fontsize="28" x="432" y="2336" name="P2_I(7:0)" orien="R180" />
-        <iomarker fontsize="28" x="432" y="2400" name="P3_I(7:0)" orien="R180" />
-        <iomarker fontsize="28" x="448" y="2016" name="ALL_T0_I(0:0)" orien="R180" />
         <instance x="560" y="2432" name="mc8051" orien="R0">
         </instance>
         <bustap x2="1120" y1="1888" y2="1792" x1="1120" />
@@ -332,7 +317,6 @@
             <wire x2="1680" y1="656" y2="656" x1="1632" />
             <wire x2="1632" y1="656" y2="816" x1="1632" />
         </branch>
-        <iomarker fontsize="28" x="1248" y="1888" name="P0_O(7:0)" orien="R0" />
         <instance x="1648" y="1840" name="XLXI_3" orien="R0">
         </instance>
         <instance x="48" y="1488" name="XLXI_21" orien="R0">
@@ -371,5 +355,33 @@
         <iomarker fontsize="28" x="2192" y="528" name="WATER(7:0)" orien="R0" />
         <instance x="2256" y="1312" name="XLXI_28" orien="R0">
         </instance>
+        <iomarker fontsize="28" x="1248" y="1888" name="P0_O(7:0)" orien="R0" />
+        <instance x="320" y="1680" name="XLXI_29" orien="R0" />
+        <branch name="XLXN_258">
+            <wire x2="384" y1="1680" y2="1696" x1="384" />
+            <wire x2="560" y1="1696" y2="1696" x1="384" />
+            <wire x2="384" y1="1696" y2="1760" x1="384" />
+            <wire x2="560" y1="1760" y2="1760" x1="384" />
+        </branch>
+        <iomarker fontsize="28" x="272" y="2208" name="P0_I(7:0)" orien="R180" />
+        <branch name="XLXN_267(0:0)">
+            <wire x2="512" y1="2080" y2="2080" x1="448" />
+            <wire x2="560" y1="2080" y2="2080" x1="512" />
+            <wire x2="512" y1="2080" y2="2144" x1="512" />
+            <wire x2="560" y1="2144" y2="2144" x1="512" />
+            <wire x2="560" y1="1952" y2="1952" x1="512" />
+            <wire x2="512" y1="1952" y2="2016" x1="512" />
+            <wire x2="560" y1="2016" y2="2016" x1="512" />
+            <wire x2="512" y1="2016" y2="2080" x1="512" />
+        </branch>
+        <instance x="64" y="2176" name="XLXI_31" orien="R0">
+        </instance>
+        <branch name="XLXN_269(7:0)">
+            <wire x2="496" y1="2144" y2="2144" x1="448" />
+            <wire x2="496" y1="2144" y2="2336" x1="496" />
+            <wire x2="560" y1="2336" y2="2336" x1="496" />
+            <wire x2="496" y1="2336" y2="2400" x1="496" />
+            <wire x2="560" y1="2400" y2="2400" x1="496" />
+        </branch>
     </sheet>
 </drawing>

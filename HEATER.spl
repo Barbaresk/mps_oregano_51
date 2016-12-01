@@ -1,7 +1,0 @@
-[Inputs]
-C
-CE
-CLR
-[Outputs]
-=HEATER[7:0]=
-[BiDir]
