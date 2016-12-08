@@ -22,35 +22,13 @@
         <signal name="XLXN_255(7:0)" />
         <signal name="RESET" />
         <signal name="WATER(7:0)" />
-        <signal name="XLXN_256" />
-        <signal name="XLXN_257" />
         <signal name="XLXN_258" />
-        <signal name="XLXN_259" />
-        <signal name="XLXN_261(0:0)" />
-        <signal name="XLXN_262(0:0)" />
-        <signal name="XLXN_263(0:0)" />
-        <signal name="XLXN_264(0:0)" />
-        <signal name="XLXN_265(0:0)" />
-        <signal name="XLXN_266(0:0)" />
-        <signal name="XLXN_268(7:0)" />
         <signal name="XLXN_269(7:0)" />
         <signal name="P0_O(7:4)" />
-        <signal name="XLXN_271" />
-        <signal name="XLXN_272" />
         <signal name="ENGINE(31:0)" />
-        <signal name="XLXN_274" />
-        <signal name="XLXN_275" />
         <signal name="XLXN_276(0:0)" />
-        <signal name="XLXN_277(0:0)" />
         <signal name="XLXN_278(0:0)" />
-        <signal name="XLXN_279" />
-        <signal name="XLXN_280" />
-        <signal name="CE" />
-        <signal name="L" />
-        <signal name="D(1:0)" />
-        <signal name="XLXN_284" />
-        <signal name="XLXN_285" />
-        <signal name="XLXN_286(0:0)" />
+        <signal name="D(3:0)" />
         <port polarity="Output" name="P0_O(7:0)" />
         <port polarity="Output" name="DATA_IN(15:0)" />
         <port polarity="Input" name="CLK" />
@@ -58,9 +36,7 @@
         <port polarity="Input" name="RESET" />
         <port polarity="Output" name="WATER(7:0)" />
         <port polarity="Output" name="ENGINE(31:0)" />
-        <port polarity="Input" name="CE" />
-        <port polarity="Input" name="L" />
-        <port polarity="Input" name="D(1:0)" />
+        <port polarity="Input" name="D(3:0)" />
         <blockdef name="mc8051_top">
             <timestamp>2016-10-12T23:45:46</timestamp>
             <rect width="400" x="64" y="-896" height="896" />
@@ -183,13 +159,11 @@
             <line x2="384" y1="-160" y2="-160" x1="320" />
         </blockdef>
         <blockdef name="SERIAL">
-            <timestamp>2016-12-1T10:5:59</timestamp>
+            <timestamp>2016-12-8T7:47:23</timestamp>
             <rect width="64" x="320" y="20" height="24" />
             <line x2="384" y1="32" y2="32" x1="320" />
             <line x2="0" y1="-288" y2="-288" x1="64" />
             <line x2="0" y1="-224" y2="-224" x1="64" />
-            <line x2="0" y1="-160" y2="-160" x1="64" />
-            <line x2="0" y1="-96" y2="-96" x1="64" />
             <rect width="64" x="0" y="-44" height="24" />
             <line x2="0" y1="-32" y2="-32" x1="64" />
             <rect width="256" x="64" y="-320" height="384" />
@@ -263,12 +237,10 @@
             <blockpin signalname="P0_O(7:4)" name="EN(3:0)" />
             <blockpin signalname="ENGINE(31:0)" name="Q(31:0)" />
         </block>
-        <block symbolname="SERIAL" name="XLXI_36">
+        <block symbolname="SERIAL" name="XLXI_38">
             <blockpin signalname="CLK" name="C" />
             <blockpin signalname="RESET" name="CLR" />
-            <blockpin signalname="CE" name="CE" />
-            <blockpin signalname="L" name="LOAD" />
-            <blockpin signalname="D(1:0)" name="D(1:0)" />
+            <blockpin signalname="D(3:0)" name="D(3:0)" />
             <blockpin signalname="XLXN_278(0:0)" name="Q(0:0)" />
         </block>
     </netlist>
@@ -462,19 +434,11 @@
             <wire x2="560" y1="2144" y2="2144" x1="544" />
             <wire x2="544" y1="2144" y2="2640" x1="544" />
         </branch>
-        <branch name="CE">
-            <wire x2="144" y1="2448" y2="2448" x1="128" />
-        </branch>
-        <branch name="L">
-            <wire x2="144" y1="2512" y2="2512" x1="128" />
-        </branch>
-        <branch name="D(1:0)">
-            <wire x2="144" y1="2576" y2="2576" x1="128" />
-        </branch>
-        <instance x="144" y="2608" name="XLXI_36" orien="R0">
+        <instance x="144" y="2608" name="XLXI_38" orien="R0">
         </instance>
-        <iomarker fontsize="28" x="128" y="2576" name="D(1:0)" orien="R180" />
-        <iomarker fontsize="28" x="128" y="2512" name="L" orien="R180" />
-        <iomarker fontsize="28" x="128" y="2448" name="CE" orien="R180" />
+        <branch name="D(3:0)">
+            <wire x2="144" y1="2576" y2="2576" x1="96" />
+        </branch>
+        <iomarker fontsize="28" x="96" y="2576" name="D(3:0)" orien="R180" />
     </sheet>
 </drawing>

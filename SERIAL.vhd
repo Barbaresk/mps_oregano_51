@@ -34,9 +34,7 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 entity SERIAL is
     Port ( C    : in  STD_LOGIC;
            CLR  : in  STD_LOGIC;
-           D    : in  STD_LOGIC_VECTOR (1 downto 0);
-           CE   : in  STD_LOGIC;
-			  LOAD : in  STD_LOGIC;
+           D    : in  STD_LOGIC_VECTOR (3 downto 0);
            Q    : out STD_LOGIC_VECTOR (0 downto 0));
 end SERIAL;
 
@@ -55,13 +53,17 @@ begin
 			count <= "000001";
 			set := false;
 		elsif C = '1' and C'event then
-			if load = '1' then
-				qq(4 downto 3) <= d;
-			elsif ce = '1' then
-				if not set then
-					qq(0) <= '0';
-					set := true;
-				end if;
+			if d /= "0000" and not set then
+				case d is
+					when "0001" => qq(4 downto 3) <= "00";
+					when "0010" => qq(4 downto 3) <= "01";
+					when "0100" => qq(4 downto 3) <= "10";
+					when "1000" => qq(4 downto 3) <= "11";
+					when others => qq(4 downto 3) <= "00";
+				end case;
+				qq(0) <= '0';
+				set := true;
+			elsif set then
 				count <= count + 1;
 				if count = "000000" then
 					qq <= '1' & qq(10 downto 1);

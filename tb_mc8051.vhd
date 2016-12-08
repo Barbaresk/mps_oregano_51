@@ -16,9 +16,7 @@ ARCHITECTURE behavioral OF top_mps_top_mps_sch_tb IS
 			 WATER   : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 			 DATA_IN : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
 			 ENGINE  : OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
-			 CE      : IN  STD_LOGIC;
-			 L       : IN  STD_LOGIC;
-			 D       : IN  STD_LOGIC_VECTOR (1 DOWNTO 0)
+			 D       : IN  STD_LOGIC_VECTOR (3 DOWNTO 0)
 	);
    END COMPONENT;
 
@@ -30,9 +28,7 @@ ARCHITECTURE behavioral OF top_mps_top_mps_sch_tb IS
 	SIGNAL WATER           : STD_LOGIC_VECTOR (7 DOWNTO 0);
 	SIGNAL TEMPERATURE     : STD_LOGIC_VECTOR (7 DOWNTO 0);
 	SIGNAL ENGINE          : STD_LOGIC_VECTOR (31 DOWNTO 0);
-	SIGNAL CE              : STD_LOGIC := '0';
-	SIGNAL L               : STD_LOGIC := '0';
-	SIGNAL D               : STD_LOGIC_VECTOR (1 DOWNTO 0) := "00";
+	SIGNAL D               : STD_LOGIC_VECTOR (3 DOWNTO 0) := "0000";
 	constant CLK_T         : time := 83.3333 ns;
 BEGIN
 
@@ -44,8 +40,6 @@ BEGIN
 		WATER   => WATER,
 		DATA_IN => DATA_IN,
 		ENGINE  => ENGINE,
-		CE      => CE,
-		L       => L,
 		D       => D
    );
 
@@ -58,13 +52,7 @@ BEGIN
 		while P0_O /= "00000001" loop
 			wait for CLK_T;
 		end loop;
-		D <= "00";
-		wait for 10 * CLK_T;
-		L <= '1';
-		wait for CLK_T;
-		L <= '0';
-		wait for 10 * CLK_T;
-		CE <= '1';
+		D <= "1000";
 		wait for 600 * CLK_T;
 		while P0_O(1) = '1' loop
 			wait for CLK_T;
