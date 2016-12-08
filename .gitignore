@@ -42,6 +42,8 @@ tmp/
 *.schbak
 *.xwbt
 *.ncd
+*.symlog
+*.spl
 ipcore_dir/*/
 coregen_lock
 sch2HdlBatchFile
