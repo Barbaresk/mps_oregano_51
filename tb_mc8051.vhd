@@ -58,7 +58,7 @@ BEGIN
 		while P0_O /= "00000001" loop
 			wait for CLK_T;
 		end loop;
-		D <= "10";
+		D <= "00";
 		wait for 10 * CLK_T;
 		L <= '1';
 		wait for CLK_T;

@@ -56,7 +56,7 @@ begin
 			set := false;
 		elsif C = '1' and C'event then
 			if load = '1' then
-				qq(3 downto 2) <= d;
+				qq(4 downto 3) <= d;
 			elsif ce = '1' then
 				if not set then
 					qq(0) <= '0';
