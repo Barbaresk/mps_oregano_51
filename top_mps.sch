@@ -6,20 +6,12 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="RAMX_WR" />
-        <signal name="RAMX_ADR(15:0)" />
         <signal name="P0_O(7:0)" />
-        <signal name="CS_DEV(1:0)" />
-        <signal name="DATA_IN(15:0)" />
-        <signal name="DATA_IN(15:8)" />
         <signal name="CLK" />
-        <signal name="DATA_IN(7:0)" />
         <signal name="P0_O(0)" />
         <signal name="P0_O(1)" />
         <signal name="P0_O(2)" />
         <signal name="XLXN_194" />
-        <signal name="P0_I(7:0)" />
-        <signal name="XLXN_255(7:0)" />
         <signal name="RESET" />
         <signal name="WATER(7:0)" />
         <signal name="XLXN_258" />
@@ -29,14 +21,14 @@
         <signal name="XLXN_276(0:0)" />
         <signal name="XLXN_278(0:0)" />
         <signal name="D(3:0)" />
+        <signal name="TEMPERATURE(7:0)" />
         <port polarity="Output" name="P0_O(7:0)" />
-        <port polarity="Output" name="DATA_IN(15:0)" />
         <port polarity="Input" name="CLK" />
-        <port polarity="Input" name="P0_I(7:0)" />
         <port polarity="Input" name="RESET" />
         <port polarity="Output" name="WATER(7:0)" />
         <port polarity="Output" name="ENGINE(31:0)" />
         <port polarity="Input" name="D(3:0)" />
+        <port polarity="Output" name="TEMPERATURE(7:0)" />
         <blockdef name="mc8051_top">
             <timestamp>2016-10-12T23:45:46</timestamp>
             <rect width="400" x="64" y="-896" height="896" />
@@ -85,17 +77,6 @@
             <rect width="64" x="464" y="-76" height="24" />
             <line x2="528" y1="-64" y2="-64" x1="464" />
         </blockdef>
-        <blockdef name="addr_mux">
-            <timestamp>2016-10-19T10:3:40</timestamp>
-            <rect width="256" x="64" y="-256" height="256" />
-            <line x2="0" y1="-224" y2="-224" x1="64" />
-            <line x2="0" y1="-96" y2="-96" x1="64" />
-            <rect width="64" x="0" y="-44" height="24" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <line x2="384" y1="-224" y2="-224" x1="320" />
-            <rect width="64" x="320" y="-108" height="24" />
-            <line x2="384" y1="-96" y2="-96" x1="320" />
-        </blockdef>
         <blockdef name="and2">
             <timestamp>2000-1-1T10:10:10</timestamp>
             <line x2="64" y1="-64" y2="-64" x1="0" />
@@ -105,16 +86,6 @@
             <line x2="64" y1="-48" y2="-48" x1="144" />
             <line x2="144" y1="-144" y2="-144" x1="64" />
             <line x2="64" y1="-48" y2="-144" x1="64" />
-        </blockdef>
-        <blockdef name="data_mux">
-            <timestamp>2016-11-24T9:28:27</timestamp>
-            <rect width="304" x="64" y="-128" height="128" />
-            <rect width="64" x="0" y="-108" height="24" />
-            <line x2="0" y1="-96" y2="-96" x1="64" />
-            <rect width="64" x="0" y="-44" height="24" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <rect width="64" x="368" y="-108" height="24" />
-            <line x2="432" y1="-96" y2="-96" x1="368" />
         </blockdef>
         <blockdef name="PUMP">
             <timestamp>2016-11-24T11:43:12</timestamp>
@@ -173,20 +144,20 @@
             <blockpin signalname="RESET" name="reset" />
             <blockpin signalname="XLXN_258" name="ramx_access_en" />
             <blockpin signalname="XLXN_258" name="ramx_data_valid" />
-            <blockpin signalname="XLXN_255(7:0)" name="ramx_data_in(7:0)" />
+            <blockpin signalname="TEMPERATURE(7:0)" name="ramx_data_in(7:0)" />
             <blockpin signalname="XLXN_276(0:0)" name="int0_i(0:0)" />
             <blockpin signalname="XLXN_276(0:0)" name="int1_i(0:0)" />
             <blockpin signalname="XLXN_276(0:0)" name="all_t0_i(0:0)" />
             <blockpin signalname="XLXN_276(0:0)" name="all_t1_i(0:0)" />
             <blockpin signalname="XLXN_278(0:0)" name="all_rxd_i(0:0)" />
-            <blockpin signalname="P0_I(7:0)" name="p0_i(7:0)" />
+            <blockpin signalname="XLXN_269(7:0)" name="p0_i(7:0)" />
             <blockpin signalname="WATER(7:0)" name="p1_i(7:0)" />
             <blockpin signalname="XLXN_269(7:0)" name="p2_i(7:0)" />
             <blockpin signalname="XLXN_269(7:0)" name="p3_i(7:0)" />
-            <blockpin signalname="RAMX_WR" name="ramx_wr" />
+            <blockpin name="ramx_wr" />
             <blockpin name="ramx_rd" />
-            <blockpin signalname="DATA_IN(15:8)" name="ramx_data_out(7:0)" />
-            <blockpin signalname="RAMX_ADR(15:0)" name="ramx_adr(15:0)" />
+            <blockpin name="ramx_data_out(7:0)" />
+            <blockpin name="ramx_adr(15:0)" />
             <blockpin signalname="P0_O(7:0)" name="p0_o(7:0)" />
             <blockpin name="p1_o(7:0)" />
             <blockpin name="p2_o(7:0)" />
@@ -195,22 +166,10 @@
             <blockpin name="all_txd_o(0:0)" />
             <blockpin name="all_rxdwr_o(0:0)" />
         </block>
-        <block symbolname="addr_mux" name="XLXI_3">
-            <blockpin signalname="CLK" name="clk" />
-            <blockpin signalname="RAMX_WR" name="wr_i" />
-            <blockpin signalname="RAMX_ADR(15:0)" name="addr(15:0)" />
-            <blockpin name="wr_o" />
-            <blockpin signalname="CS_DEV(1:0)" name="cs_dev(1:0)" />
-        </block>
         <block symbolname="and2" name="XLXI_11">
             <blockpin signalname="P0_O(0)" name="I0" />
             <blockpin signalname="P0_O(1)" name="I1" />
             <blockpin signalname="XLXN_194" name="O" />
-        </block>
-        <block symbolname="data_mux" name="XLXI_21">
-            <blockpin signalname="CS_DEV(1:0)" name="cs_dev(1:0)" />
-            <blockpin signalname="DATA_IN(15:0)" name="data_in(15:0)" />
-            <blockpin signalname="XLXN_255(7:0)" name="data_out(7:0)" />
         </block>
         <block symbolname="PUMP" name="XLXI_26">
             <blockpin signalname="CLK" name="C" />
@@ -222,7 +181,7 @@
             <blockpin signalname="CLK" name="C" />
             <blockpin signalname="P0_O(2)" name="CE" />
             <blockpin signalname="RESET" name="CLR" />
-            <blockpin signalname="DATA_IN(7:0)" name="HEATER(7:0)" />
+            <blockpin signalname="TEMPERATURE(7:0)" name="HEATER(7:0)" />
         </block>
         <block symbolname="vcc" name="XLXI_29">
             <blockpin signalname="XLXN_258" name="P" />
@@ -245,16 +204,6 @@
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
-        <branch name="RAMX_WR">
-            <wire x2="1552" y1="1568" y2="1568" x1="1088" />
-            <wire x2="1552" y1="1568" y2="1744" x1="1552" />
-            <wire x2="1648" y1="1744" y2="1744" x1="1552" />
-        </branch>
-        <branch name="RAMX_ADR(15:0)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1360" y="1808" type="branch" />
-            <wire x2="1360" y1="1808" y2="1808" x1="1088" />
-            <wire x2="1648" y1="1808" y2="1808" x1="1360" />
-        </branch>
         <branch name="P0_O(7:0)">
             <wire x2="1120" y1="1888" y2="1888" x1="1088" />
             <wire x2="1152" y1="1888" y2="1888" x1="1120" />
@@ -262,46 +211,12 @@
             <wire x2="1216" y1="1888" y2="1888" x1="1184" />
             <wire x2="1248" y1="1888" y2="1888" x1="1216" />
         </branch>
-        <branch name="DATA_IN(15:8)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="3328" y="1472" type="branch" />
-            <wire x2="1376" y1="1728" y2="1728" x1="1088" />
-            <wire x2="3328" y1="1472" y2="1472" x1="1376" />
-            <wire x2="3376" y1="1472" y2="1472" x1="3328" />
-            <wire x2="1376" y1="1472" y2="1728" x1="1376" />
-        </branch>
-        <bustap x2="3376" y1="1472" y2="1472" x1="3472" />
-        <branch name="DATA_IN(7:0)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="3360" y="608" type="branch" />
-            <wire x2="3360" y1="1152" y2="1152" x1="2640" />
-            <wire x2="3376" y1="608" y2="608" x1="3360" />
-            <wire x2="3360" y1="608" y2="1152" x1="3360" />
-        </branch>
-        <branch name="DATA_IN(15:0)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="3040" y="2704" type="branch" />
-            <wire x2="32" y1="1456" y2="2704" x1="32" />
-            <wire x2="3040" y1="2704" y2="2704" x1="32" />
-            <wire x2="3472" y1="2704" y2="2704" x1="3040" />
-            <wire x2="48" y1="1456" y2="1456" x1="32" />
-            <wire x2="3472" y1="320" y2="608" x1="3472" />
-            <wire x2="3472" y1="608" y2="1472" x1="3472" />
-            <wire x2="3472" y1="1472" y2="2704" x1="3472" />
-        </branch>
-        <branch name="CS_DEV(1:0)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1872" y="2688" type="branch" />
-            <wire x2="48" y1="1392" y2="1392" x1="16" />
-            <wire x2="16" y1="1392" y2="2688" x1="16" />
-            <wire x2="1872" y1="2688" y2="2688" x1="16" />
-            <wire x2="2064" y1="2688" y2="2688" x1="1872" />
-            <wire x2="2064" y1="1744" y2="1744" x1="2032" />
-            <wire x2="2064" y1="1744" y2="2688" x1="2064" />
-        </branch>
         <branch name="P0_O(2)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1584" y="1216" type="branch" />
             <wire x2="1184" y1="1216" y2="1792" x1="1184" />
             <wire x2="1584" y1="1216" y2="1216" x1="1184" />
             <wire x2="2256" y1="1216" y2="1216" x1="1584" />
         </branch>
-        <iomarker fontsize="28" x="3472" y="320" name="DATA_IN(15:0)" orien="R270" />
         <branch name="P0_O(0)">
             <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1152" y="592" type="branch" />
             <wire x2="1168" y1="400" y2="400" x1="1152" />
@@ -313,14 +228,6 @@
             <wire x2="1168" y1="336" y2="336" x1="1120" />
             <wire x2="1120" y1="336" y2="560" x1="1120" />
             <wire x2="1120" y1="560" y2="1792" x1="1120" />
-        </branch>
-        <branch name="P0_I(7:0)">
-            <wire x2="560" y1="2208" y2="2208" x1="272" />
-        </branch>
-        <branch name="XLXN_255(7:0)">
-            <wire x2="496" y1="1392" y2="1392" x1="480" />
-            <wire x2="496" y1="1392" y2="1824" x1="496" />
-            <wire x2="560" y1="1824" y2="1824" x1="496" />
         </branch>
         <instance x="560" y="2432" name="mc8051" orien="R0">
         </instance>
@@ -338,19 +245,13 @@
             <wire x2="1632" y1="816" y2="816" x1="512" />
             <wire x2="1936" y1="816" y2="816" x1="1632" />
             <wire x2="1936" y1="816" y2="1280" x1="1936" />
-            <wire x2="2144" y1="1280" y2="1280" x1="1936" />
-            <wire x2="2256" y1="1280" y2="1280" x1="2144" />
-            <wire x2="2144" y1="1280" y2="1968" x1="2144" />
-            <wire x2="2304" y1="1968" y2="1968" x1="2144" />
+            <wire x2="1936" y1="1280" y2="1968" x1="1936" />
+            <wire x2="2304" y1="1968" y2="1968" x1="1936" />
+            <wire x2="2256" y1="1280" y2="1280" x1="1936" />
             <wire x2="512" y1="816" y2="1520" x1="512" />
             <wire x2="1680" y1="656" y2="656" x1="1632" />
             <wire x2="1632" y1="656" y2="816" x1="1632" />
         </branch>
-        <instance x="1648" y="1840" name="XLXI_3" orien="R0">
-        </instance>
-        <instance x="48" y="1488" name="XLXI_21" orien="R0">
-        </instance>
-        <bustap x2="3376" y1="608" y2="608" x1="3472" />
         <branch name="CLK">
             <wire x2="64" y1="1568" y2="2320" x1="64" />
             <wire x2="144" y1="2320" y2="2320" x1="64" />
@@ -359,11 +260,8 @@
             <wire x2="544" y1="880" y2="880" x1="384" />
             <wire x2="544" y1="880" y2="1568" x1="544" />
             <wire x2="1520" y1="880" y2="880" x1="544" />
-            <wire x2="1632" y1="880" y2="880" x1="1520" />
-            <wire x2="1632" y1="880" y2="1152" x1="1632" />
-            <wire x2="1632" y1="1152" y2="1616" x1="1632" />
-            <wire x2="1648" y1="1616" y2="1616" x1="1632" />
-            <wire x2="2208" y1="1152" y2="1152" x1="1632" />
+            <wire x2="2208" y1="880" y2="880" x1="1520" />
+            <wire x2="2208" y1="880" y2="1152" x1="2208" />
             <wire x2="2256" y1="1152" y2="1152" x1="2208" />
             <wire x2="2208" y1="1152" y2="1904" x1="2208" />
             <wire x2="2304" y1="1904" y2="1904" x1="2208" />
@@ -397,15 +295,16 @@
             <wire x2="384" y1="1696" y2="1760" x1="384" />
             <wire x2="560" y1="1760" y2="1760" x1="384" />
         </branch>
-        <iomarker fontsize="28" x="272" y="2208" name="P0_I(7:0)" orien="R180" />
         <instance x="64" y="2176" name="XLXI_31" orien="R0">
         </instance>
         <branch name="XLXN_269(7:0)">
             <wire x2="480" y1="2144" y2="2144" x1="448" />
-            <wire x2="480" y1="2144" y2="2336" x1="480" />
+            <wire x2="480" y1="2144" y2="2208" x1="480" />
+            <wire x2="480" y1="2208" y2="2336" x1="480" />
             <wire x2="480" y1="2336" y2="2400" x1="480" />
             <wire x2="560" y1="2400" y2="2400" x1="480" />
             <wire x2="560" y1="2336" y2="2336" x1="480" />
+            <wire x2="560" y1="2208" y2="2208" x1="480" />
         </branch>
         <iomarker fontsize="28" x="384" y="816" name="RESET" orien="R180" />
         <bustap x2="1216" y1="1888" y2="1984" x1="1216" />
@@ -440,5 +339,15 @@
             <wire x2="144" y1="2576" y2="2576" x1="96" />
         </branch>
         <iomarker fontsize="28" x="96" y="2576" name="D(3:0)" orien="R180" />
+        <branch name="TEMPERATURE(7:0)">
+            <wire x2="448" y1="1408" y2="1824" x1="448" />
+            <wire x2="560" y1="1824" y2="1824" x1="448" />
+            <wire x2="2624" y1="1408" y2="1408" x1="448" />
+            <wire x2="2720" y1="1408" y2="1408" x1="2624" />
+            <wire x2="2800" y1="1408" y2="1408" x1="2720" />
+            <wire x2="2720" y1="1152" y2="1152" x1="2640" />
+            <wire x2="2720" y1="1152" y2="1408" x1="2720" />
+        </branch>
+        <iomarker fontsize="28" x="2800" y="1408" name="TEMPERATURE(7:0)" orien="R0" />
     </sheet>
 </drawing>
