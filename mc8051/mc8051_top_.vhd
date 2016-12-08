@@ -21,6 +21,10 @@ entity mc8051_top is
 	ramx_rd   			: out std_logic; 
 	ramx_access_en		: in std_logic; 
 	ramx_data_valid	: in std_logic; 
+------------------------strelets mod------------------------------------------
+
+		cop : out std_logic_vector(7 downto 0);
+		ca : out std_logic_vector(15 downto 0);
                                                       
 ------------------------------------------------------------------------------
 		  

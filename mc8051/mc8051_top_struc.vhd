@@ -22,6 +22,8 @@ architecture struc of mc8051_top is
 																														
 begin                 -- architecture structural
   
+	cop <= s_rom_data;
+	ca <= s_rom_adr;
 
   i_mc8051_core : mc8051_core
     port map(clk         => clk,

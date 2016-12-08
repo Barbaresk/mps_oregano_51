@@ -39,7 +39,7 @@ end HEATER;
 
 architecture HEATER_ARCH of HEATER is
 	--длительность в микросекундах одного переключения счётчика
-	constant DURATION_LITER : INTEGER := 50;  
+	constant DURATION_LITER : INTEGER := 10;  
 begin
 	process (CLR, C)
 		variable TIMER  : INTEGER;

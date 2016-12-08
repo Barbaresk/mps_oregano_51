@@ -15,17 +15,21 @@ ARCHITECTURE behavioral OF top_mps_top_mps_sch_tb IS
 			 WATER       : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 			 TEMPERATURE : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 			 ENGINE      : OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
-			 D           : IN  STD_LOGIC_VECTOR (3 DOWNTO 0)
+			 D           : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);
+			 COP         : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+			 CA          : OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
 	);
    END COMPONENT;
 
-   SIGNAL RESET           : STD_LOGIC := '0';
-   SIGNAL P0_O            : STD_LOGIC_VECTOR (7 DOWNTO 0);
-   SIGNAL CLK             : STD_LOGIC := '0';
-	SIGNAL WATER           : STD_LOGIC_VECTOR (7 DOWNTO 0);
-	SIGNAL TEMPERATURE     : STD_LOGIC_VECTOR (7 DOWNTO 0);
-	SIGNAL ENGINE          : STD_LOGIC_VECTOR (31 DOWNTO 0);
-	SIGNAL D               : STD_LOGIC_VECTOR (3 DOWNTO 0) := "0000";
+   SIGNAL RESET       : STD_LOGIC := '0';
+   SIGNAL P0_O        : STD_LOGIC_VECTOR (7 DOWNTO 0);
+   SIGNAL CLK         : STD_LOGIC := '0';
+	SIGNAL WATER       : STD_LOGIC_VECTOR (7 DOWNTO 0);
+	SIGNAL TEMPERATURE : STD_LOGIC_VECTOR (7 DOWNTO 0);
+	SIGNAL ENGINE      : STD_LOGIC_VECTOR (31 DOWNTO 0);
+	SIGNAL D           : STD_LOGIC_VECTOR (3 DOWNTO 0) := "0000";
+	SIGNAL COP         : STD_LOGIC_VECTOR (7 DOWNTO 0);
+   SIGNAL CA          : STD_LOGIC_VECTOR (15 DOWNTO 0);
 	constant CLK_T         : time := 83.3333 ns;
 BEGIN
 
@@ -36,7 +40,9 @@ BEGIN
 		WATER       => WATER,
 		TEMPERATURE => TEMPERATURE,
 		ENGINE      => ENGINE,
-		D           => D
+		D           => D,
+		COP         => COP,
+		CA          => CA
    );
 
 	CLK <= not CLK after CLK_T / 2;

@@ -29,6 +29,8 @@
         <signal name="XLXN_312" />
         <signal name="XLXN_313" />
         <signal name="XLXN_314" />
+        <signal name="COP(7:0)" />
+        <signal name="CA(15:0)" />
         <port polarity="Output" name="P0_O(7:0)" />
         <port polarity="Input" name="CLK" />
         <port polarity="Output" name="ENGINE(31:0)" />
@@ -37,9 +39,14 @@
         <port polarity="Output" name="P3_O(7:0)" />
         <port polarity="Input" name="RESET" />
         <port polarity="Output" name="WATER(7:0)" />
+        <port polarity="Output" name="COP(7:0)" />
+        <port polarity="Output" name="CA(15:0)" />
         <blockdef name="mc8051_top">
-            <timestamp>2016-10-12T23:45:46</timestamp>
-            <rect width="400" x="64" y="-896" height="896" />
+            <timestamp>2016-12-8T9:6:35</timestamp>
+            <rect width="64" x="464" y="20" height="24" />
+            <line x2="528" y1="32" y2="32" x1="464" />
+            <rect width="64" x="464" y="84" height="24" />
+            <line x2="528" y1="96" y2="96" x1="464" />
             <line x2="0" y1="-864" y2="-864" x1="64" />
             <line x2="0" y1="-800" y2="-800" x1="64" />
             <line x2="0" y1="-736" y2="-736" x1="64" />
@@ -84,6 +91,7 @@
             <line x2="528" y1="-144" y2="-144" x1="464" />
             <rect width="64" x="464" y="-76" height="24" />
             <line x2="528" y1="-64" y2="-64" x1="464" />
+            <rect width="400" x="64" y="-896" height="1024" />
         </blockdef>
         <blockdef name="PUMP">
             <timestamp>2016-11-24T11:43:12</timestamp>
@@ -163,6 +171,8 @@
             <blockpin name="all_rxd_o(0:0)" />
             <blockpin name="all_txd_o(0:0)" />
             <blockpin name="all_rxdwr_o(0:0)" />
+            <blockpin signalname="COP(7:0)" name="cop(7:0)" />
+            <blockpin signalname="CA(15:0)" name="ca(15:0)" />
         </block>
         <block symbolname="PUMP" name="XLXI_26">
             <blockpin signalname="CLK" name="C" />
@@ -314,11 +324,11 @@
         </branch>
         <branch name="WATER(7:0)">
             <wire x2="560" y1="2272" y2="2272" x1="496" />
-            <wire x2="496" y1="2272" y2="2496" x1="496" />
-            <wire x2="1888" y1="2496" y2="2496" x1="496" />
+            <wire x2="496" y1="2272" y2="2592" x1="496" />
+            <wire x2="1888" y1="2592" y2="2592" x1="496" />
             <wire x2="1888" y1="2192" y2="2192" x1="1872" />
-            <wire x2="1888" y1="2192" y2="2496" x1="1888" />
             <wire x2="1904" y1="2192" y2="2192" x1="1888" />
+            <wire x2="1888" y1="2192" y2="2592" x1="1888" />
         </branch>
         <instance x="80" y="2096" name="XLXI_31" orien="R0">
         </instance>
@@ -329,5 +339,13 @@
         <instance x="224" y="2432" name="XLXI_38" orien="R0">
         </instance>
         <iomarker fontsize="28" x="208" y="2272" name="D(3:0)" orien="R180" />
+        <branch name="COP(7:0)">
+            <wire x2="1120" y1="2464" y2="2464" x1="1088" />
+        </branch>
+        <branch name="CA(15:0)">
+            <wire x2="1120" y1="2528" y2="2528" x1="1088" />
+        </branch>
+        <iomarker fontsize="28" x="1120" y="2464" name="COP(7:0)" orien="R0" />
+        <iomarker fontsize="28" x="1120" y="2528" name="CA(15:0)" orien="R0" />
     </sheet>
 </drawing>

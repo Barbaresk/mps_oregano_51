@@ -39,7 +39,7 @@ end PUMP;
 
 architecture PUMP_ARCH of PUMP is
 	--длительность в микросекундах одного переключения счётчика
-	constant DURATION_LITER : INTEGER := 100;  
+	constant DURATION_LITER : INTEGER := 10;  
 begin
 	process (CLR, C)
 		variable TIMER  : INTEGER;
