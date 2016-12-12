@@ -45,15 +45,15 @@ begin
 
 	q <= qq(0 downto 0);
 	
-	process (C, CLR) 
+	process (C) 
 		variable set : boolean := false;
 	begin
-		if CLR = '1' then
-			qq <= "00000000001";
-			count <= "000001";
-			set := false;
-		elsif C = '1' and C'event then
-			if d /= "0000" and not set then
+		if C = '1' and C'event then
+			if CLR = '1' then
+				qq <= "00000000001";
+				count <= "000001";
+				set := false;
+			elsif d /= "0000" and not set then
 				case d is
 					when "0001" => qq(4 downto 3) <= "00";
 					when "0010" => qq(4 downto 3) <= "01";

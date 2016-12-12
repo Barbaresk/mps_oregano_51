@@ -45,12 +45,12 @@ begin
 
 	q <= qq;
 
-	process (C, CLR) begin
-		if clr = '1' then
-			qq <= (others => '0');
-			le <= "0000";
-		elsif c = '1' and c'event then
-			if en /= le then
+	process (C) begin
+		if c = '1' and c'event then
+			if clr = '1' then
+				qq <= (others => '0');
+				le <= "0000";
+			elsif en /= le then
 				qq <= qq + 1;
 				le <= en;
 			end if;

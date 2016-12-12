@@ -24,14 +24,13 @@
         <signal name="XLXN_327(31:0)" />
         <signal name="Q(87:0)" />
         <signal name="D(3:0)" />
-        <signal name="XLXN_353" />
-        <signal name="XLXN_354" />
-        <signal name="XLXN_355" />
-        <signal name="XLXN_356(3:0)" />
-        <signal name="XLXN_357" />
-        <signal name="XLXN_358(7:0)" />
-        <signal name="XLXN_359(7:0)" />
-        <signal name="XLXN_360(7:0)" />
+        <signal name="XLXN_361" />
+        <signal name="XLXN_362" />
+        <signal name="XLXN_363" />
+        <signal name="XLXN_364" />
+        <signal name="XLXN_365" />
+        <signal name="XLXN_366" />
+        <port polarity="Output" name="P0_O(7:0)" />
         <port polarity="Input" name="C" />
         <port polarity="Input" name="CLR" />
         <port polarity="Output" name="Q(87:0)" />
@@ -233,10 +232,13 @@
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
         <branch name="P0_O(7:0)">
-            <wire x2="1152" y1="1888" y2="1888" x1="1088" />
+            <wire x2="1120" y1="1888" y2="1888" x1="1088" />
+            <wire x2="1152" y1="1888" y2="1888" x1="1120" />
             <wire x2="1184" y1="1888" y2="1888" x1="1152" />
             <wire x2="1216" y1="1888" y2="1888" x1="1184" />
             <wire x2="1728" y1="1888" y2="1888" x1="1216" />
+            <wire x2="1120" y1="1888" y2="2448" x1="1120" />
+            <wire x2="1792" y1="2448" y2="2448" x1="1120" />
         </branch>
         <branch name="P0_O(2)">
             <wire x2="1280" y1="1696" y2="1696" x1="1184" />
@@ -375,5 +377,6 @@
         </instance>
         <instance x="1728" y="2240" name="XLXI_40" orien="R0">
         </instance>
+        <iomarker fontsize="28" x="1792" y="2448" name="P0_O(7:0)" orien="R0" />
     </sheet>
 </drawing>

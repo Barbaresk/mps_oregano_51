@@ -41,15 +41,15 @@ architecture PUMP_ARCH of PUMP is
 	--длительность в микросекундах одного переключения счётчика
 	constant DURATION_LITER : INTEGER := 10;  
 begin
-	process (CLR, C)
+	process (C)
 		variable TIMER  : INTEGER;
 		variable LITERS : INTEGER;
 	begin
-		if CLR = '1' then
-			LITERS := 0;
-			TIMER  := 0;
-		elsif C'event and C = '1' then
-			if CE = '1' then
+		if C'event and C = '1' then
+			if CLR = '1' then
+				LITERS := 0;
+				TIMER  := 0;
+			elsif CE = '1' then
 				TIMER := TIMER + 1;
 				if TIMER = DURATION_LITER * 12  then
 					LITERS := LITERS + 1;
