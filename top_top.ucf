@@ -7,3 +7,4 @@ NET "LED<4>" LOC = "M13";
 NET "LED<5>" LOC = "D4";
 NET "LED<6>" LOC = "P16";
 NET "LED<7>" LOC = "N12";
+PIN "XLXI_20/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
