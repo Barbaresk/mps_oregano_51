@@ -9,8 +9,10 @@ END top_mps_top_mps_sch_tb;
 ARCHITECTURE behavioral OF top_mps_top_mps_sch_tb IS 
 
    COMPONENT top_mps
-   PORT( D : IN  STD_LOGIC_VECTOR(6 DOWNTO 0);
-	      Q : OUT STD_LOGIC_VECTOR(87 DOWNTO 0)
+   PORT( D   : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	      C   : IN  STD_LOGIC;
+			CLR : IN STD_LOGIC;
+	      Q   : OUT STD_LOGIC_VECTOR(87 DOWNTO 0)
 	);
    END COMPONENT;
 
@@ -24,17 +26,17 @@ ARCHITECTURE behavioral OF top_mps_top_mps_sch_tb IS
 	SIGNAL COMMAND     : STD_LOGIC_VECTOR (3 DOWNTO 0) := "0000";
 	SIGNAL COP         : STD_LOGIC_VECTOR (7 DOWNTO 0);
    SIGNAL CA          : STD_LOGIC_VECTOR (15 DOWNTO 0);
-	SIGNAL D           : STD_LOGIC_VECTOR (6 DOWNTO 0);
 	SIGNAL Q           : STD_LOGIC_VECTOR (87 DOWNTO 0);
 	constant CLK_T     : time := 83.3333 ns;
 BEGIN
 
    UUT: top_mps PORT MAP(
-		d => d,
+		d => command,
+		c => clk,
+		clr => reset,
 		q => q
    );
 	
-	d <= '0' & clk & reset & command;
 	
 	p0_o        <= q(87 DOWNTO 80);
 	p3_o        <= q(79 DOWNTO 72);
